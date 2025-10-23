@@ -1,0 +1,198 @@
+
+:root {
+    --primary-color: #000000;       
+    --accent-color: #32cd32;        
+    --light-bg: #f5f5f5;            
+    --dark-gray: #333333;            
+    --white: #ffffff;
+  
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Lora', serif;
+  }
+  
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: var(--font-body);
+    background-color: var(--light-bg);
+    color: var(--dark-gray);
+    line-height: 1.6;
+  }
+  
+
+  header {
+    background-color: var(--white);
+    border-bottom: 1px solid #ccc;
+    padding: 1rem 2rem;
+  }
+  
+  .main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .logo {
+  display: block;
+  max-width: 200px;     
+  width: 15vw;            
+  min-width: 80px;         
+  height: auto;             
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: var(--dark-gray);
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    color: var(--accent-color);
+  }
+  
+
+  .search-bar {
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-bar input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 3px 0 0 3px;
+    outline: none;
+  }
+  
+  .search-bar button {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    background-color: var(--accent-color);
+    color: var(--white);
+    border-radius: 0 3px 3px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .search-bar button:hover {
+    background-color: #28a428;
+  }
+  
+
+  .hero {
+    text-align: center;
+    padding: 4rem 2rem;
+    background-color: var(--white);
+  }
+  
+  .hero h1 {
+    font-family: var(--font-heading);
+    font-size: 2.6rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+  }
+  
+  .hero p {
+    font-size: 1.1rem;
+    color: #555;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+
+  .featured {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding: 3rem 2rem;
+  }
+  
+  .card {
+    background-color: var(--white);
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 280px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  }
+  
+  .card-image.placeholder {
+    background-color: #e0e0e0;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .card-content {
+    padding: 1rem;
+  }
+  
+  .card-label {
+    font-size: 0.9rem;
+    color: #777;
+  }
+  
+  .card-title {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-top: 0.5rem;
+  }
+  
+  
+
+  footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-size: 0.9rem;
+    margin-top: 2rem;
+  }
+  
+
+  @media (max-width: 768px) {
+    .nav-links {
+      gap: 1rem;
+      font-size: 0.9rem;
+    }
+  
+    .hero h1 {
+      font-size: 2rem;
+    }
+  
+    .featured {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  .players-page {
+
+    margin: 0 auto;
+    margin-top: 100px;
+    max-width: 70%;
+    justify-content: center;
+    
+  }
+
