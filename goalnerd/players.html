@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="GoalNerd Player Stats - Explore detailed player statistics across leagues and seasons." />
+  <meta name="description"
+    content="GoalNerd Player Stats - Explore detailed player statistics across leagues and seasons." />
   <title>GoalNerd | Players</title>
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/players.css" />
+  <script src="js/players.js" defer></script>
 </head>
+
 <body>
 
   <header>
@@ -29,70 +34,23 @@
 
   <main>
     <section class="players-page">
-        <section class="intro">
-      <h1>Player Statistics.</h1>
-      <p>
-        Explore player performance across goals, assists, saves, and more! Click a player to view detailed stats and season history.
-      </p>
-    </section>
+      <section class="intro">
+        <h1>Player Statistics.</h1>
+        <p>
+          Explore player performance across goals, assists, saves, and more! Click a player to view detailed
+          stats and season history.
+        </p>
+      </section>
 
-
-    <section class="player-list">
-        <article class="card">
-            <div class="card-image placeholder"></div>
-            <div class="card-content">
-              <p class="card-label">Team</p>
-              <h3 class="card-title">Player Name</h3>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-image placeholder"></div>
-            <div class="card-content">
-              <p class="card-label">Team</p>
-              <h3 class="card-title">Player Name</h3>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-image placeholder"></div>
-            <div class="card-content">
-              <p class="card-label">Team</p>
-              <h3 class="card-title">Player Name</h3>
-            </div>
-          </article>
-
-
-          <article class="card">
-            <div class="card-image placeholder"></div>
-            <div class="card-content">
-              <p class="card-label">Team</p>
-              <h3 class="card-title">Player Name</h3>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-image placeholder"></div>
-            <div class="card-content">
-              <p class="card-label">Team</p>
-              <h3 class="card-title">Player Name</h3>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-image placeholder"></div>
-            <div class="card-content">
-              <p class="card-label">Team</p>
-              <h3 class="card-title">Player Name</h3>
-            </div>
-          </article>
-
+      <section class="featured player-list" id="player-grid">
+      </section>
     </section>
   </main>
-
 
   <footer>
     <p>&copy; 2025 GoalNerd. All Rights Reserved.</p>
   </footer>
+
 </body>
+
 </html>
