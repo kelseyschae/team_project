@@ -7,6 +7,7 @@
   <meta name="description"
     content="GoalNerd Player Stats - Explore detailed player statistics across leagues and seasons." />
   <title>GoalNerd | Players</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="css/players.css" />
   <script src="js/players.js" defer></script>
@@ -20,11 +21,16 @@
       <div>
         <a href="index.html"><img class="logo" src="pictures/logo.png" alt="GoalNerd Logo"></a>
       </div>
-      <ul class="nav-links">
-        <li><a href="players.html" class="active">Players</a></li>
-        <li><a href="leagues.html">Leagues</a></li>
-        <li><a href="games.html">Games</a></li>
-        <li><a href="mystats.html">My Stats</a></li>
+      <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="players.html" class="nav-link active">Players</a></li>
+        <li><a href="leagues.html" class="nav-link">Leagues</a></li>
+        <li><a href="games.html" class="nav-link">Games</a></li>
+        <li><a href="mystats.html" class="nav-link">My Stats</a></li>
       </ul>
       <form class="search-bar" role="search" id="search-form">
         <input type="text" placeholder="Enter a player, club..." aria-label="Search players" name="search_query"
