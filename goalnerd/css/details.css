@@ -1,0 +1,95 @@
+/* ============================
+   DETAILS PAGE LAYOUT
+   ============================ */
+
+/* Asegura que el body ocupe toda la altura */
+body,
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor principal */
+.details {
+    display: flex;
+    justify-content: center;
+    /* Horizontal center */
+    align-items: center;
+    /* Vertical center */
+    min-height: 70vh;
+    /* Altura del área debajo del hero */
+    padding: 2rem;
+}
+
+/* Tarjeta principal centrada */
+.details-card {
+    width: 100%;
+    max-width: 520px;
+    /* Tamaño ideal para una tarjeta de stats */
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.4s ease;
+}
+
+/* Imagen/Logo de equipo o jugador */
+#details-image-container {
+    width: 100%;
+    height: 240px;
+    background-color: #f2f2f2;
+}
+
+/* Contenido interno */
+.details-card .card-content {
+    padding: 1.5rem;
+}
+
+/* Títulos */
+#details-title {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+#details-name {
+    font-size: 1.6rem;
+    margin-top: 0.25rem;
+}
+
+/* Labels */
+#details-type {
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Meta info */
+.details-meta {
+    margin: 1rem 0;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* Lista de stats */
+.details-stats ul {
+    padding-left: 1rem;
+}
+
+.details-stats li {
+    padding: 0.3rem 0;
+    font-size: 0.95rem;
+}
+
+/* Animación */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

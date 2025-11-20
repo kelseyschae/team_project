@@ -19,7 +19,9 @@ function createPlayerCardHTML(playerData) {
     const playerAge = player.age || 'N/A';
 
     const cardHTML = `
-        <article class="card">
+        <article class="card"
+                 data-player-id="${player.id}"
+                 data-player-name="${playerName}">
             <div class="card-image" style="background-image: url('${playerPhoto}'); 
                                            background-size: cover; 
                                            background-position: center; 
@@ -29,6 +31,7 @@ function createPlayerCardHTML(playerData) {
             <div class="card-content">
                 <p class="card-label">${teamName}</p>
                 <h3 class="card-title">${playerName} (${playerAge} años)</h3>
+                <p>${playerPosition}</p>
             </div>
         </article>
     `;
@@ -60,6 +63,19 @@ async function fetchAndDisplayPlayerList() {
 
             gridContainer.innerHTML = allCardsHTML;
 
+            // 👉 Delegación de eventos: click en cualquier card
+            gridContainer.addEventListener('click', (event) => {
+                const card = event.target.closest('.card');
+                if (!card) return;
+
+                const playerId = card.getAttribute('data-player-id');
+                const playerName = card.getAttribute('data-player-name');
+
+                if (!playerId) return;
+
+                window.location.href = `details.html?type=player&id=${playerId}&name=${encodeURIComponent(playerName)}`;
+            });
+
         } else {
             gridContainer.innerHTML = '<p style="color: red; text-align: center;">❌ Error: No se encontraron jugadores.</p>';
         }
@@ -69,5 +85,4 @@ async function fetchAndDisplayPlayerList() {
     }
 }
 
-// --- INICIO ---
 document.addEventListener('DOMContentLoaded', fetchAndDisplayPlayerList);

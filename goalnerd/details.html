@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="GoalNerd - Detailed view for teams and players, including stats and info." />
+    <title>GoalNerd | Details</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/details.css" />
+    <script src="js/details.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <nav class="main-nav">
+            <div>
+                <a href="index.html"><img class="logo" src="pictures/logo.png" alt="GoalNerd Logo"></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="players.html">Players</a></li>
+                <li><a href="leagues.html">Leagues</a></li>
+                <li><a href="games.html">Games</a></li>
+                <li><a href="stats.html">My Stats</a></li>
+            </ul>
+            <form class="search-bar" role="search">
+                <input type="text" placeholder="Enter a player, club..." aria-label="Search" />
+                <button type="submit">Search</button>
+            </form>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1 id="details-title">Loading details...</h1>
+            <p id="details-subtitle">
+                Please wait while we fetch the latest stats.
+            </p>
+        </section>
+
+        <section class="details">
+            <article class="card details-card">
+                <div class="card-image placeholder" id="details-image-container">
+                    <!-- Imagen del equipo/jugador desde la API -->
+                </div>
+
+                <div class="card-content">
+                    <p class="card-label" id="details-type">Type</p>
+                    <h3 class="card-title" id="details-name">Name</h3>
+
+                    <div class="details-meta">
+                        <p id="details-meta-1"></p>
+                        <p id="details-meta-2"></p>
+                    </div>
+
+                    <div class="details-stats">
+                        <h4>Main stats</h4>
+                        <ul id="details-stats-list">
+                            <!-- JS agregará <li> aquí -->
+                        </ul>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 GoalNerd. All Rights Reserved.</p>
+    </footer>
+</body>
+
+</html>

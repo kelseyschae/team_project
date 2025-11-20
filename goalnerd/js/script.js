@@ -10,13 +10,17 @@ const HEADERS = {
 const SEASON = 2023;
 
 const getCardElement = (index, selector) => {
-
     const cards = document.querySelectorAll('.featured .card');
     if (cards.length > index) {
         return cards[index].querySelector(selector);
     }
     return null;
 };
+
+function getCard(index) {
+    const cards = document.querySelectorAll('.featured .card');
+    return cards.length > index ? cards[index] : null;
+}
 
 async function fetchRandomTeam() {
     const leagueId = 140;
@@ -33,6 +37,7 @@ async function fetchRandomTeam() {
             const titleElement = getCardElement(0, '.card-title');
             const imageElement = getCardElement(0, '.card-image');
             const labelElement = getCardElement(0, '.card-label');
+            const cardElement = getCard(0);
 
             if (titleElement) titleElement.textContent = randomTeam.name;
             if (labelElement) labelElement.textContent = `Today's Team | ${randomTeam.country}`;
@@ -46,15 +51,24 @@ async function fetchRandomTeam() {
                 imageElement.style.backgroundPosition = 'center';
                 imageElement.style.backgroundColor = 'var(--white)';
             }
+
+            // 👉 Hacer clicable la card del equipo
+            if (cardElement) {
+                cardElement.style.cursor = 'pointer';
+                cardElement.addEventListener('click', () => {
+                    window.location.href = `details.html?type=team&id=${randomTeam.id}&name=${encodeURIComponent(randomTeam.name)}`;
+                });
+            }
+
         } else {
             console.error('Error: No se encontraron equipos.');
-            if (getCardElement(0, '.card-title')) getCardElement(0, '.card-title').textContent = 'Error: No hay datos de equipo.';
+            if (getCardElement(0, '.card-title'))
+                getCardElement(0, '.card-title').textContent = 'Error: No hay datos de equipo.';
         }
     } catch (error) {
         console.error('Error de red al obtener el equipo:', error);
     }
 }
-
 
 async function fetchRandomPlayerSpotlight() {
     const teamId = 529;
@@ -71,6 +85,7 @@ async function fetchRandomPlayerSpotlight() {
             const titleElement = getCardElement(1, '.card-title');
             const imageElement = getCardElement(1, '.card-image');
             const labelElement = getCardElement(1, '.card-label');
+            const cardElement = getCard(1);
 
             if (titleElement) titleElement.textContent = `${randomPlayer.name} (${randomPlayer.age || 'N/A'} años)`;
             if (labelElement) labelElement.textContent = `Spotlight Player`;
@@ -83,15 +98,24 @@ async function fetchRandomPlayerSpotlight() {
                 imageElement.style.backgroundPosition = 'center';
                 imageElement.style.backgroundColor = 'transparent';
             }
+
+            // 👉 Hacer clicable la card del jugador spotlight
+            if (cardElement) {
+                cardElement.style.cursor = 'pointer';
+                cardElement.addEventListener('click', () => {
+                    window.location.href = `details.html?type=player&id=${randomPlayer.id}&name=${encodeURIComponent(randomPlayer.name)}`;
+                });
+            }
+
         } else {
             console.error('Error: No se encontraron jugadores para el spotlight.');
-            if (getCardElement(1, '.card-title')) getCardElement(1, '.card-title').textContent = 'Error: No hay datos de jugador.';
+            if (getCardElement(1, '.card-title'))
+                getCardElement(1, '.card-title').textContent = 'Error: No hay datos de jugador.';
         }
     } catch (error) {
         console.error('Error de red al obtener el jugador:', error);
     }
 }
-
 
 document.addEventListener('DOMContentLoaded', () => {
     fetchRandomTeam();
