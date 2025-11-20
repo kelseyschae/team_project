@@ -9,6 +9,7 @@
   <title>GoalNerd | Soccer Stats Made Smart</title>
   <link rel="stylesheet" href="css/styles.css" />
   <script src="js/script.js" defer></script>
+  <script src="js/search.js" defer></script>
 </head>
 
 <body>
@@ -24,8 +25,9 @@
         <li><a href="games.html">Games</a></li>
         <li><a href="stats.html">My Stats</a></li>
       </ul>
-      <form class="search-bar" role="search">
-        <input type="text" placeholder="Enter a player, club..." aria-label="Search" />
+      <form class="search-bar" role="search" id="search-form">
+        <input type="text" placeholder="Enter a player, club..." aria-label="Search" name="search_query"
+          id="search-input" />
         <button type="submit">Search</button>
       </form>
     </nav>

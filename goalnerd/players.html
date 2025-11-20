@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="css/players.css" />
   <script src="js/players.js" defer></script>
+  <script src="js/search.js" defer></script>
 </head>
 
 <body>
@@ -25,8 +26,9 @@
         <li><a href="games.html">Games</a></li>
         <li><a href="mystats.html">My Stats</a></li>
       </ul>
-      <form class="search-bar" role="search">
-        <input type="text" placeholder="Enter a player, club..." aria-label="Search players" />
+      <form class="search-bar" role="search" id="search-form">
+        <input type="text" placeholder="Enter a player, club..." aria-label="Search players" name="search_query"
+          id="search-input" />
         <button type="submit">Search</button>
       </form>
     </nav>

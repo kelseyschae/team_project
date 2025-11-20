@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GoalNerd | Search Results</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/players.css" />
+    <script src="js/search-results.js" defer></script>
+    <script src="js/search.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <nav class="main-nav">
+            <div>
+                <a href="index.html"><img class="logo" src="pictures/logo.png" alt="GoalNerd Logo"></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="players.html">Players</a></li>
+                <li><a href="leagues.html">Leagues</a></li>
+                <li><a href="games.html">Games</a></li>
+                <li><a href="stats.html">My Stats</a></li>
+            </ul>
+            <form class="search-bar" role="search" id="search-form">
+                <input type="text" placeholder="Enter a player, club..." aria-label="Search" name="search_query"
+                    id="search-input" />
+                <button type="submit">Search</button>
+            </form>
+        </nav>
+    </header>
+
+    <main>
+        <section class="players-page">
+            <section class="intro">
+                <h1>Search Results</h1>
+                <p>
+                    Showing results for: "<strong id="query-display">...</strong>"
+                </p>
+            </section>
+
+            <section class="featured player-list" id="results-grid">
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 GoalNerd. All Rights Reserved.</p>
+    </footer>
+
+</body>
+
+</html>
