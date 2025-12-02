@@ -11,6 +11,7 @@ const SEASON = 2023;
 
 function createPlayerCardHTML(playerData) {
     const player = playerData.player;
+    // Check if statistics array exists and has at least one element before accessing team.name
     const teamName = playerData.statistics[0] ? playerData.statistics[0].team.name : 'Team N/A';
 
     const playerName = player.name;
@@ -30,7 +31,7 @@ function createPlayerCardHTML(playerData) {
             </div>
             <div class="card-content">
                 <p class="card-label">${teamName}</p>
-                <h3 class="card-title">${playerName} (${playerAge} años)</h3>
+                <h3 class="card-title">${playerName} (${playerAge} years)</h3>
                 <p>${playerPosition}</p>
             </div>
         </article>
@@ -46,7 +47,7 @@ async function fetchAndDisplayPlayerList() {
     const gridContainer = document.getElementById('player-grid');
     if (!gridContainer) return;
 
-    gridContainer.innerHTML = '<p style="text-align: center;">Cargando jugadores...</p>';
+    gridContainer.innerHTML = '<p style="text-align: center;">Loading players...</p>';
 
     try {
         const url = `${API_BASE_URL}players?team=${teamId}&season=${SEASON}&page=${page}`;
@@ -63,7 +64,7 @@ async function fetchAndDisplayPlayerList() {
 
             gridContainer.innerHTML = allCardsHTML;
 
-            // 👉 Delegación de eventos: click en cualquier card
+            // 👉 Event Delegation: click on any card
             gridContainer.addEventListener('click', (event) => {
                 const card = event.target.closest('.card');
                 if (!card) return;
@@ -77,11 +78,11 @@ async function fetchAndDisplayPlayerList() {
             });
 
         } else {
-            gridContainer.innerHTML = '<p style="color: red; text-align: center;">❌ Error: No se encontraron jugadores.</p>';
+            gridContainer.innerHTML = '<p style="color: red; text-align: center;">❌ Error: No players found.</p>';
         }
     } catch (error) {
-        console.error('Error al obtener o mostrar jugadores:', error);
-        gridContainer.innerHTML = '<p style="color: red; text-align: center;">❌ Error de conexión o API Key inválida.</p>';
+        console.error('Error fetching or displaying players:', error);
+        gridContainer.innerHTML = '<p style="color: red; text-align: center;">❌ Connection error or invalid API Key.</p>';
     }
 }
 

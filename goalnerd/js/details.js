@@ -1,6 +1,6 @@
 // js/details.js
 
-const API_KEY = 'e37194af7ec1ed8077729487376e4934';
+const API_KEY = '693885b9cc4a583bbe109e68dfe39c46';
 const API_HOST = 'v3.football.api-sports.io';
 const API_BASE_URL = 'https://v3.football.api-sports.io/';
 
@@ -11,13 +11,13 @@ const HEADERS = {
 
 const SEASON = 2023;
 
-// --- Leer parámetros de la URL: ?type=team&id=33&name=Barcelona
+// --- Read URL parameters: ?type=team&id=33&name=Barcelona
 const params = new URLSearchParams(window.location.search);
-const type = params.get('type'); // "team" o "player"
-const id = params.get('id');     // id numérico del API
-const nameFromUrl = params.get('name'); // opcional
+const type = params.get('type'); // "team" or "player"
+const id = params.get('id');     // numeric API id
+const nameFromUrl = params.get('name'); // optional
 
-// --- Elementos del DOM
+// --- DOM elements
 const titleEl = document.getElementById('details-title');
 const subtitleEl = document.getElementById('details-subtitle');
 const typeEl = document.getElementById('details-type');
@@ -27,7 +27,7 @@ const meta2El = document.getElementById('details-meta-2');
 const statsListEl = document.getElementById('details-stats-list');
 const imageContainerEl = document.getElementById('details-image-container');
 
-// --- Estado inicial si faltan datos
+// --- Initial state if data is missing
 if (!type || !id) {
     titleEl.textContent = 'No data available';
     subtitleEl.textContent = 'We could not find a team or player. Please go back and try again.';
@@ -47,10 +47,10 @@ async function loadDetails() {
         let url = '';
 
         if (type === 'team') {
-            // Endpoint de equipos de API-Football
+            // API-Football Teams Endpoint
             url = `${API_BASE_URL}teams?id=${id}`;
         } else {
-            // Endpoint de jugadores de API-Football
+            // API-Football Players Endpoint
             url = `${API_BASE_URL}players?id=${id}&season=${SEASON}`;
         }
 
@@ -77,7 +77,7 @@ async function loadDetails() {
     }
 }
 
-// --- Rellenar detalles de TEAM ---
+// --- Fill TEAM details ---
 function fillTeamDetails(item) {
     const team = item.team;   // { id, name, logo, country, founded, ... }
     const venue = item.venue; // { name, city, capacity, ... }
@@ -89,7 +89,7 @@ function fillTeamDetails(item) {
     typeEl.textContent = 'Team';
     titleEl.textContent = `Team: ${team.name}`;
 
-    // Imagen / logo
+    // Image / logo
     if (team.logo && imageContainerEl) {
         imageContainerEl.classList.remove('placeholder');
         imageContainerEl.style.backgroundImage = `url('${team.logo}')`;
@@ -123,10 +123,10 @@ function fillTeamDetails(item) {
     }
 }
 
-// --- Rellenar detalles de PLAYER ---
+// --- Fill PLAYER details ---
 function fillPlayerDetails(item) {
-    const player = item.player;             // { id, name, age, nationality, photo, ... }
-    const stats = item.statistics && item.statistics[0]; // stats principales
+    const player = item.player;              // { id, name, age, nationality, photo, ... }
+    const stats = item.statistics && item.statistics[0]; // main stats
 
     let displayName = player.name || nameFromUrl || 'Unknown player';
     if (player.age) {
@@ -137,7 +137,7 @@ function fillPlayerDetails(item) {
     typeEl.textContent = 'Player';
     titleEl.textContent = `Player: ${player.name}`;
 
-    // Imagen del jugador
+    // Player image
     if (player.photo && imageContainerEl) {
         imageContainerEl.classList.remove('placeholder');
         imageContainerEl.style.backgroundImage = `url('${player.photo}')`;
@@ -156,7 +156,7 @@ function fillPlayerDetails(item) {
     meta1El.textContent = `Team: ${teamName}`;
     meta2El.textContent = `Position: ${position} | Nationality: ${player.nationality || 'N/A'}`;
 
-    // Stats principales
+    // Main stats
     statsListEl.innerHTML = '';
 
     if (stats && stats.games) {
