@@ -1,4 +1,4 @@
-const API_KEY = 'e37194af7ec1ed8077729487376e4934';
+const API_KEY = '693885b9cc4a583bbe109e68dfe39c46';
 const API_HOST = 'v3.football.api-sports.io';
 const API_BASE_URL = 'https://v3.football.api-sports.io/';
 
@@ -117,7 +117,59 @@ async function fetchRandomPlayerSpotlight() {
     }
 }
 
+// Hamburger Menu Toggle
+function initHamburgerMenu() {
+    const hamburger = document.getElementById('hamburger-btn');
+    const navLinks = document.getElementById('nav-links');
+
+    if (!hamburger || !navLinks) return;
+
+    // Toggle menu
+    hamburger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isActive = navLinks.classList.toggle('active');
+        hamburger.classList.toggle('active');
+        hamburger.setAttribute('aria-expanded', isActive);
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+        }
+    });
+
+    // Prevent menu from closing when clicking inside it
+    navLinks.addEventListener('click', (e) => {
+        e.stopPropagation();
+    });
+}
+
+// RollOut Animation for Navigation Links
+function initNavigationAnimation() {
+    const navLinksElements = document.querySelectorAll('.nav-link');
+
+    navLinksElements.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetUrl = link.getAttribute('href');
+
+            // Add animation classes
+            link.classList.add('animate__animated', 'animate__rollOut');
+
+            // Navigate after animation completes
+            link.addEventListener('animationend', () => {
+                window.location.href = targetUrl;
+            }, { once: true });
+        });
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     fetchRandomTeam();
     fetchRandomPlayerSpotlight();
+    initHamburgerMenu();
+    initNavigationAnimation();
 });

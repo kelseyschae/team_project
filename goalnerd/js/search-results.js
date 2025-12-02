@@ -1,5 +1,5 @@
 // Reusing API constants from other files (assume they are defined here for simplicity)
-const API_KEY = 'e37194af7ec1ed8077729487376e4934';
+const API_KEY = '693885b9cc4a583bbe109e68dfe39c46';
 const API_HOST = 'v3.football.api-sports.io';
 const API_BASE_URL = 'https://v3.football.api-sports.io/';
 
@@ -98,4 +98,53 @@ async function fetchSearchResults() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', fetchSearchResults);
+// Hamburger Menu Toggle
+function initHamburgerMenu() {
+    const hamburger = document.getElementById('hamburger-btn');
+    const navLinks = document.getElementById('nav-links');
+
+    if (!hamburger || !navLinks) return;
+
+    hamburger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isActive = navLinks.classList.toggle('active');
+        hamburger.classList.toggle('active');
+        hamburger.setAttribute('aria-expanded', isActive);
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+        }
+    });
+
+    navLinks.addEventListener('click', (e) => {
+        e.stopPropagation();
+    });
+}
+
+// RollOut Animation for Navigation Links
+function initNavigationAnimation() {
+    const navLinksElements = document.querySelectorAll('.nav-link');
+
+    navLinksElements.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetUrl = link.getAttribute('href');
+
+            link.classList.add('animate__animated', 'animate__rollOut');
+
+            link.addEventListener('animationend', () => {
+                window.location.href = targetUrl;
+            }, { once: true });
+        });
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    fetchSearchResults();
+    initHamburgerMenu();
+    initNavigationAnimation();
+});
