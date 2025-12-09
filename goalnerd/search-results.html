@@ -5,40 +5,44 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GoalNerd | Search Results</title>
+    <!-- Animate.css for rollOut animation on nav links -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/players.css" />
-    <script src="js/search-results.js" defer></script>
-    <script src="js/search.js" defer></script>
 </head>
 
 <body>
+    <!-- Skip Link for Accessibility (keyboard users can skip nav) -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <header>
-        <nav class="main-nav">
-            <div>
-                <a href="index.html"><img class="logo" src="pictures/logo.png" alt="GoalNerd Logo"></a>
-            </div>
-            <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu" aria-expanded="false">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-            </button>
-            <ul class="nav-links" id="nav-links">
-                <li><a href="players.html" class="nav-link">Players</a></li>
-                <li><a href="leagues.html" class="nav-link">Leagues</a></li>
-                <li><a href="games.html" class="nav-link">Games</a></li>
-                <li><a href="stats.html" class="nav-link">My Stats</a></li>
-            </ul>
-            <form class="search-bar" role="search" id="search-form">
-                <input type="text" placeholder="Enter a player, club..." aria-label="Search" name="search_query"
-                    id="search-input" />
+    <header class="main-header">
+        <div class="nav-left">
+            <a href="index.html">
+                <img src="pictures/logo.png" alt="GoalNerd logo" class="logo">
+            </a>
+        </div>
+
+        <!-- Hamburger Button (mobile only) -->
+        <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+
+        <nav class="main-nav" id="nav-links" role="navigation" aria-label="Main navigation">
+            <a href="players.html" class="nav-link">Players</a>
+            <a href="leagues.html" class="nav-link">Leagues</a>
+            <a href="games.html" class="nav-link">Games</a>
+            <a href="mystats.html" class="nav-link">My Stats</a>
+
+            <form class="search-box" role="search" id="search-form">
+                <input type="text" placeholder="Search players, clubs..." aria-label="Search players and clubs" id="search-input">
                 <button type="submit">Search</button>
             </form>
         </nav>
     </header>
 
-    <main>
+    <main id="main-content">
         <section class="players-page">
             <section class="intro">
                 <h1>Search Results</h1>
@@ -56,6 +60,8 @@
         <p>&copy; 2025 GoalNerd. All Rights Reserved.</p>
     </footer>
 
+    <!-- Use ES6 module system - all scripts import from modules/ folder -->
+    <script type="module" src="js/search-results.module.js"></script>
 </body>
 
 </html>

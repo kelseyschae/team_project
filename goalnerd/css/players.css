@@ -1,6 +1,7 @@
 .intro {
     text-align: center;
     background-color: white;
+    padding: 2rem;
 }
 
 .intro h1 {
@@ -8,4 +9,96 @@
     font-size: 2.6rem;
     color: var(--primary-color);
     margin-bottom: 1rem;
+}
+
+/* ============================================================================
+   PLAYER GRID
+   ============================================================================
+   Displays player cards in a responsive grid layout.
+   ============================================================================ */
+.player-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* ============================================================================
+   PLAYER CARDS
+   ============================================================================
+   Individual card styling with hover effects and accessibility.
+   ============================================================================ */
+.card {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* Focus styles for keyboard navigation (accessibility) */
+.card:focus {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 2px;
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.card-image {
+    width: 100%;
+    height: 160px;
+    background-color: var(--light-bg);
+    background-size: cover;
+    background-position: center;
+}
+
+.card-content {
+    padding: 1rem;
+}
+
+.card-label {
+    font-size: 0.85rem;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.card-title {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: var(--dark-gray);
+    margin: 0.5rem 0;
+}
+
+.card-content p {
+    color: var(--mid-gray);
+    font-size: 0.9rem;
+}
+
+/* ============================================================================
+   MOBILE RESPONSIVE
+   ============================================================================ */
+@media (max-width: 768px) {
+    .player-list {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .intro {
+        padding: 1.5rem 1rem;
+    }
+    
+    .intro h1 {
+        font-size: 2rem;
+    }
 }

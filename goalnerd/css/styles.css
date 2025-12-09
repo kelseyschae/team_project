@@ -3,6 +3,23 @@
 /* -------------------------------- */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
 
+/* ============================================================================
+   GoalNerd - Main Stylesheet
+   ============================================================================
+   
+   FILE STRUCTURE:
+   ├── styles.css (this file) - Global styles, navigation, hamburger menu
+   ├── players.css - Player grid and card styles
+   └── details.css - Details page specific styles
+   
+   ACCESSIBILITY FEATURES:
+   - Skip link for keyboard users
+   - Focus states on all interactive elements
+   - ARIA labels in HTML
+   - Keyboard navigation support
+   
+   ============================================================================ */
+
 /* -------------------------------- */
 /* ROOT VARIABLES                   */
 /* -------------------------------- */
@@ -216,6 +233,156 @@ footer {
   margin-top: 5rem;
 }
 
+/* ============================================================================
+   ACCESSIBILITY - SKIP LINK
+   ============================================================================
+   This allows keyboard users to skip directly to main content.
+   It's hidden by default and shows only when focused (Tab key).
+   ============================================================================ */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--primary-color);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  z-index: 9999;
+  text-decoration: none;
+  font-weight: 600;
+  transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+  top: 10px;
+  outline: 3px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+/* ============================================================================
+   HAMBURGER MENU (MOBILE NAVIGATION)
+   ============================================================================
+   Shows on screens 768px and below. Transforms into an X when active.
+   ============================================================================ */
+
+/* Hide hamburger by default (shown via media query below) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+}
+
+.hamburger-line {
+  width: 100%;
+  height: 3px;
+  background-color: var(--primary-color);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* X animation when menu is open */
+.hamburger.active .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* ============================================================================
+   MOBILE RESPONSIVE STYLES (max-width: 768px)
+   ============================================================================
+   - Shows hamburger menu
+   - Hides nav links (shows when hamburger clicked)
+   - Stacks nav items vertically
+   ============================================================================ */
+@media (max-width: 768px) {
+  /* Show hamburger button on mobile */
+  .hamburger {
+    display: flex;
+  }
+
+  /* Header adjustments for mobile */
+  .main-header {
+    padding: 1rem 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  /* Hide nav by default on mobile */
+  .main-nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem 0;
+    gap: 1rem;
+    background-color: white;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    margin-top: 1rem;
+  }
+
+  /* Show nav when hamburger is clicked */
+  .main-nav.active {
+    display: flex;
+  }
+
+  /* Stack nav links vertically */
+  .main-nav a {
+    padding: 0.75rem 0;
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  /* Search box full width on mobile */
+  .search-box {
+    flex-direction: column;
+    width: 100%;
+    padding: 0.5rem 0;
+  }
+
+  .search-box input {
+    width: 100%;
+  }
+
+  .search-box button {
+    width: 100%;
+  }
+
+  /* Hero adjustments for mobile */
+  .hero {
+    padding: 4rem 1.5rem 6rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+}
+
+/* Focus styles for accessibility */
+.hamburger:focus {
+  outline: 3px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+.nav-link:focus {
+  outline: 3px solid var(--accent-color);
+  outline-offset: 2px;
+}
 
 
 
@@ -223,3 +390,6 @@ footer {
 
 
 
+
+
+ 
