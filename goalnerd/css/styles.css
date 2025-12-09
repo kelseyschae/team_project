@@ -1,95 +1,71 @@
-:root {
-  --primary-color: #0f3d0f;
-  --primary-color-light: #1f5c1f;
-  --accent-color: #32cd32;
-  --accent-color-dark: #28a428;
+/* ========================================= */
+/* ⚽ GOALNERD — GLOBAL THEME */
+/* ========================================= */
 
-  --light-bg: #f6f9f5;
-  --mid-gray: #4a4a4a;
-  --dark-gray: #222;
+:root {
+  --primary-green: #0f3d0f;
+  --accent-green: #32cd32;
+  --accent-green-dark: #28a428;
+
+  --light-bg: #f7fff4;
   --white: #ffffff;
+  --gray-dark: #222;
+  --gray-mid: #4a4a4a;
 
   --font-heading: 'Poppins', sans-serif;
   --font-body: 'Lora', serif;
 
   --radius: 14px;
   --transition: 0.3s ease;
-  --shadow-soft: 0 4px 14px rgba(0, 0, 0, 0.08);
-  --shadow-hover: 0 10px 26px rgba(0, 0, 0, 0.12);
-  --glow-green: 0 0 12px rgba(50, 205, 50, 0.35);
+  --shadow-soft: 0 4px 14px rgba(0,0,0,0.08);
 }
 
-/* ---------------------------- */
-/* GLOBAL RESET                 */
-/* ---------------------------- */
+
+/* ========================================= */
+/* RESET */
+/* ========================================= */
+
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   font-family: var(--font-body);
   background-color: var(--light-bg);
-  color: var(--mid-gray);
-  line-height: 1.65;
-  -webkit-font-smoothing: antialiased;
+  color: var(--gray-mid);
   overflow-x: hidden;
-
-  /* CLEAN SIMPLE HEX PATTERN */
-  background-image:
-    linear-gradient(30deg, rgba(0, 80, 0, 0.06) 12%, transparent 12.5%),
-    linear-gradient(150deg, rgba(0, 80, 0, 0.06) 12%, transparent 12.5%),
-    linear-gradient(90deg, rgba(0, 80, 0, 0.06) 2%, transparent 2.5%);
-  background-size: 50px 50px;
 }
 
-/* ---------------------------- */
-/* HEADER                       */
-/* ---------------------------- */
+
+/* ========================================= */
+/* HEADER */
+/* ========================================= */
+
 header {
-  background-color: var(--white);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  padding: 1rem 2.5rem;
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  box-shadow: var(--shadow-soft);
-}
+  width: 100%;
+  background: var(--white);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  padding: 1rem 3rem;
 
-.main-nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
   gap: 2rem;
+
+  position: sticky;
+  top: 0;
+  z-index: 50;
 }
 
-/* LEFT: LOGO */
-.nav-left {
-  display: flex;
-  align-items: center;
-}
-
+/* Logo */
 .logo {
   max-width: 180px;
-  width: 14vw;
-  min-width: 80px;
-  transition: transform var(--transition), filter var(--transition);
-  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.12));
+  height: auto;
 }
 
-.logo:hover {
-  transform: scale(1.06);
-}
-
-/* CENTER: NAV LINKS */
-.nav-center {
-  display: flex;
-  flex: 1;
-  justify-content: center;
-}
-
+/* NAVIGATION */
 .nav-links {
   list-style: none;
   display: flex;
@@ -98,132 +74,125 @@ header {
 
 .nav-links a {
   text-decoration: none;
-  color: var(--dark-gray);
+  color: var(--gray-dark);
   font-weight: 600;
-  transition: var(--transition);
+  font-size: 1.05rem;
 }
 
 .nav-links a:hover {
-  color: var(--accent-color-dark);
+  color: var(--accent-green-dark);
 }
 
-/* RIGHT: SEARCH BAR */
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-
+/* SEARCH BAR */
 .search-bar {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: .5rem;
 }
 
 .search-bar input {
-  padding: 0.65rem 0.9rem;
-  border: 1px solid #cfcfcf;
+  padding: .7rem 1rem;
+  border: 1px solid #ccc;
   border-radius: var(--radius);
-  width: 220px;
-  transition: var(--transition);
-}
-
-.search-bar input:focus {
-  border-color: var(--accent-color);
-  box-shadow: 0 0 0 3px rgba(50,205,50,0.22);
 }
 
 .search-bar button {
-  padding: 0.65rem 1.2rem;
-  background-color: var(--accent-color);
-  color: var(--white);
+  padding: .7rem 1.2rem;
+  background: var(--accent-green);
   border: none;
   border-radius: var(--radius);
+  color: white;
   font-weight: 600;
   cursor: pointer;
-  transition: var(--transition);
 }
 
 .search-bar button:hover {
-  background-color: var(--accent-color-dark);
-  transform: translateY(-2px);
+  background: var(--accent-green-dark);
 }
 
-/* ---------------------------- */
-/* HERO SECTION — BOLD IMAGE    */
-/* ---------------------------- */
+
+/* ========================================= */
+/* HERO SECTION */
+/* ========================================= */
+
 .hero {
-  text-align: center;
-  padding: 6rem 2rem 10rem;
-  position: relative;
-  color: white;
-}
+  width: 100%;
+  height: 70vh;
 
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("../pictures/hero.jpg");
+  background: 
+    linear-gradient(rgba(0,0,0,0.20), rgba(0,0,0,0.20)),
+    url("../pictures/hero.jpg");
+
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-  opacity: 1; /* BOLD IMAGE */
-  z-index: -2;
-}
 
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.55),
-    rgba(0, 0, 0, 0.35)
-  );
-  z-index: -1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  padding: 4rem 2rem;
+  color: white;
 }
 
 .hero h1 {
   font-family: var(--font-heading);
-  font-size: clamp(2.4rem, 5vw, 3.4rem);
+  font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 700;
-  color: white;
+  margin-bottom: 1rem;
 }
 
 .hero p {
-  font-size: 1.2rem;
-  max-width: 650px;
-  margin: 1rem auto 0;
-  opacity: 0.9;
-  color: white;
+  font-size: 1.3rem;
+  max-width: 700px;
+  opacity: .9;
 }
 
-/* ---------------------------- */
-/* FEATURED CARDS               */
-/* ---------------------------- */
+
+/* ========================================= */
+/* ⚽ CONTENT PATTERN (Sections Under Hero) */
+/* ========================================= */
+
+.content-section {
+  background-color: #f7fff4;
+  padding: 4rem 2rem;
+
+  background-image:
+    linear-gradient(90deg, rgba(60, 130, 60, 0.11) 2px, transparent 2px),
+    linear-gradient(30deg, rgba(60, 130, 60, 0.11) 2px, transparent 2px),
+    linear-gradient(150deg, rgba(60, 130, 60, 0.11) 2px, transparent 2px);
+  
+  background-size: 55px 55px;
+}
+
+
+/* ========================================= */
+/* FEATURED CARDS */
+/* ========================================= */
+
 .featured {
   display: flex;
   justify-content: center;
   gap: 2rem;
   flex-wrap: wrap;
-  padding: 4rem 2rem;
 }
 
 .card {
-  background-color: var(--white);
-  border-radius: var(--radius);
   width: 300px;
-  overflow: hidden;
-  border: 1px solid rgba(0,0,0,0.08);
+  background: white;
+  border-radius: var(--radius);
   box-shadow: var(--shadow-soft);
+  overflow: hidden;
   transition: var(--transition);
+  cursor: pointer;
 }
 
 .card:hover {
-  transform: translateY(-10px);
-  box-shadow: var(--shadow-hover);
+  transform: translateY(-8px);
 }
 
+/* Image placeholder */
 .card-image {
   height: 180px;
   background-size: cover;
@@ -234,34 +203,52 @@ header {
   padding: 1.4rem;
 }
 
+.card-label {
+  font-size: 0.8rem;
+  color: #6f6f6f;
+  text-transform: uppercase;
+}
+
 .card-title {
-  color: var(--primary-color);
   font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: var(--primary-green);
 }
 
-/* ---------------------------- */
-/* FOOTER                       */
-/* ---------------------------- */
+
+/* ========================================= */
+/* FOOTER */
+/* ========================================= */
+
 footer {
-  padding: 2rem 1rem;
-  background-color: var(--primary-color);
-  color: var(--white);
+  margin-top: 4rem;
+  background: var(--primary-green);
+  padding: 2rem;
   text-align: center;
-  margin-top: 7rem;
-  border-top: 3px solid var(--accent-color);
+  color: white;
 }
 
-/* ---------------------------- */
-/* RESPONSIVE                   */
-/* ---------------------------- */
+
+
+/* ========================================= */
+/* MOBILE */
+/* ========================================= */
+
 @media (max-width: 768px) {
-  .nav-links {
-    gap: 1.2rem;
+  header {
+    flex-direction: column;
+    gap: 1.5rem;
   }
 
-  .hero {
-    padding: 4rem 1rem 7rem;
+  .nav-links {
+    gap: 1.5rem;
+  }
+
+  .featured {
+    flex-direction: column;
+    align-items: center;
   }
 }
+
 
 
