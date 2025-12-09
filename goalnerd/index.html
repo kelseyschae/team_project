@@ -4,89 +4,67 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description"
-    content="GoalNerd - Soccer stats and analytics for fans who want to stay informed and engaged." />
   <title>GoalNerd | Soccer Stats Made Smart</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-  <link rel="stylesheet" href="css/styles.css" />
-  <script src="js/script.js" defer></script>
-  <script src="js/search.js" defer></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
 
-  <header>
+  <div id="loader" class="soccer-loader">
+    <div class="hex"></div>
+    <div class="hex"></div>
+    <div class="hex"></div>
+    <div class="hex"></div>
+    <div class="hex"></div>
+    <div class="hex"></div>
+  </div>
+  
+  <header class="main-header">
+    <div class="logo-area">
+      <img src="pictures/logo.png" alt="GoalNerd logo" class="logo">
+      <span class="site-title">GoalNerd</span>
+    </div>
+
     <nav class="main-nav">
-      <div>
-        <a href="index.html"><img class="logo" src="pictures/logo.png" alt="GoalNerd Logo"></a>
+      <a href="players.html">Players</a>
+      <a href="leagues.html">Leagues</a>
+      <a href="games.html">Games</a>
+      <a href="mystats.html">My Stats</a>
+
+      <div class="search-box">
+        <input type="text" placeholder="Search players, clubs...">
+        <button>Search</button>
       </div>
-      <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu" aria-expanded="false">
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-      </button>
-      <ul class="nav-links" id="nav-links">
-        <li><a href="players.html" class="nav-link">Players</a></li>
-        <li><a href="leagues.html" class="nav-link">Leagues</a></li>
-        <li><a href="games.html" class="nav-link">Games</a></li>
-        <li><a href="stats.html" class="nav-link">My Stats</a></li>
-      </ul>
-      <form class="search-bar" role="search" id="search-form">
-        <input type="text" placeholder="Enter a player, club..." aria-label="Search" name="search_query"
-          id="search-input" />
-        <button type="submit">Search</button>
-      </form>
     </nav>
   </header>
 
-  <main>
-    <section class="hero">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
       <h1>All the Stats. One Place.</h1>
-      <p>
-        Track goals, assists, possession, and performance insights, all in one
-        place!
-      </p>
-    </section>
+      <p>Track goals, assists, possession, and performance insights — all in one place.</p>
+      <a href="players.html" class="hero-btn">Explore Players</a>
+    </div>
+  </section>
 
+  <!-- Main Content -->
+  <main class="content-wrapper">
+    <h2 class="section-title"></h2>
 
-    <section class="featured">
-      <article class="card">
-        <div class="card-image placeholder"></div>
-        <div class="card-content">
-          <p class="card-label">Today's Team</p>
-          <h3 class="card-title">Team Name</h3>
-        </div>
-      </article>
+    <div id="games-container" class="games-grid">
+      <!-- JavaScript will inject game cards here -->
+    </div>
 
-      <h1>Today's Games</h1> <!--Here im exploring to do the live scores -->
-    <table>
-        <thead>
-            <tr>
-                <th>Time</th>
-                <th>Home</th>
-                <th>Score</th>
-                <th>Visitor</th>
-                <th>League</th>
-            </tr>
-        </thead>
-        <tbody id="matches"></tbody>
-    </table>
+    <h2 class="section-title">Spotlight Player</h2>
 
-
-      <article class="card">
-        <div class="card-image placeholder"></div>
-        <div class="card-content">
-          <p class="card-label">Spotlight Player</p>
-          <h3 class="card-title">Player Name</h3>
-        </div>
-      </article>
-    </section>
+    <div id="spotlight-player" class="spotlight-card">
+      <!-- Injected by JS -->
+    </div>
   </main>
 
-
-  <footer>
-    <p>&copy; 2025 GoalNerd. All Rights Reserved.</p>
-  </footer>
+  <script src="js/script.js" defer></script>
 </body>
 
 </html>
