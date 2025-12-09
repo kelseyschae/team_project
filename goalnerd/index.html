@@ -6,38 +6,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GoalNerd | Soccer Stats Made Smart</title>
 
-  <!-- CSS -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
+  <!-- Navigation -->
+  <header>
+    <div class="main-nav">
 
-  <div id="loader" class="soccer-loader">
-    <div class="hex"></div>
-    <div class="hex"></div>
-    <div class="hex"></div>
-    <div class="hex"></div>
-    <div class="hex"></div>
-    <div class="hex"></div>
-  </div>
-  
-  <header class="main-header">
-    <div class="logo-area">
-      <img src="pictures/logo.png" alt="GoalNerd logo" class="logo">
-      <span class="site-title">GoalNerd</span>
-    </div>
-
-    <nav class="main-nav">
-      <a href="players.html">Players</a>
-      <a href="leagues.html">Leagues</a>
-      <a href="games.html">Games</a>
-      <a href="mystats.html">My Stats</a>
-
-      <div class="search-box">
-        <input type="text" placeholder="Search players, clubs...">
-        <button>Search</button>
+      <!-- LEFT -->
+      <div class="nav-left">
+        <img src="pictures/logo.png" alt="GoalNerd logo" class="logo">
+        <span class="site-title">GoalNerd</span>
       </div>
-    </nav>
+
+      <!-- CENTER NAV -->
+      <div class="nav-center">
+        <ul class="nav-links">
+          <li><a href="players.html">Players</a></li>
+          <li><a href="leagues.html">Leagues</a></li>
+          <li><a href="games.html">Games</a></li>
+          <li><a href="mystats.html">My Stats</a></li>
+        </ul>
+      </div>
+
+      <!-- RIGHT SEARCH -->
+      <div class="nav-right">
+        <div class="search-bar">
+          <input type="text" placeholder="Search players, clubs...">
+          <button>Search</button>
+        </div>
+      </div>
+
+    </div>
   </header>
 
   <!-- Hero Section -->
@@ -50,21 +51,16 @@
   </section>
 
   <!-- Main Content -->
-  <main class="content-wrapper">
-    <h2 class="section-title"></h2>
+  <main class="content-section">
 
-    <div id="games-container" class="games-grid">
-      <!-- JavaScript will inject game cards here -->
-    </div>
+    <div id="games-container" class="games-grid"></div>
 
-    <h2 class="section-title">Spotlight Player</h2>
+    <div id="spotlight-player" class="spotlight-card"></div>
 
-    <div id="spotlight-player" class="spotlight-card">
-      <!-- Injected by JS -->
-    </div>
   </main>
 
   <script src="js/script.js" defer></script>
 </body>
 
 </html>
+
