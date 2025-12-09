@@ -1,6 +1,6 @@
 // js/search-results.js
 
-const API_KEY = '693885b9cc4a583bbe109e68dfe39c46';
+//const API_KEY = "4c63ce2a1c64085d46b339dcc033d21f";
 const API_HOST = 'v3.football.api-sports.io';
 const API_BASE_URL = 'https://v3.football.api-sports.io/';
 
