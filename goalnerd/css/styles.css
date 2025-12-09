@@ -1,10 +1,10 @@
 :root {
-  --primary-color: #0f3d0f; /* dark green base */
+  --primary-color: #0f3d0f;
   --primary-color-light: #1f5c1f;
-  --accent-color: #32cd32; 
+  --accent-color: #32cd32;
   --accent-color-dark: #28a428;
 
-  --light-bg: #f6f9f5; 
+  --light-bg: #f6f9f5;
   --mid-gray: #4a4a4a;
   --dark-gray: #222;
   --white: #ffffff;
@@ -19,39 +19,32 @@
   --glow-green: 0 0 12px rgba(50, 205, 50, 0.35);
 }
 
-/* ---------------------------- */
-/* GLOBAL RESET                 */
-/* ---------------------------- */
+/* GLOBAL RESET */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/* 🌐 FULL-SITE HEX BACKGROUND */
 body {
   font-family: var(--font-body);
-  background-color: var(--light-bg);
   color: var(--mid-gray);
   line-height: 1.65;
-  -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 
-  /* Original pattern */
   background-color: #f8fff5;
+
+  /* soccer hex pattern */
   background-image:
-    radial-gradient(circle at 100% 150%, #cfeacc 24%, rgba(255,255,255,0) 25%),
-    radial-gradient(circle at 0 150%, #cfeacc 24%, rgba(255,255,255,0) 25%),
-    radial-gradient(circle at 50% 100%, #cfeacc 24%, rgba(255,255,255,0) 25%),
-    radial-gradient(circle at 100% 50%, #cfeacc 24%, rgba(255,255,255,0) 25%),
-    radial-gradient(circle at 0 50%, #cfeacc 24%, rgba(255,255,255,0) 25%),
-    radial-gradient(circle at 50% 0, #cfeacc 24%, rgba(255,255,255,0) 25%);
-  background-size: 60px 60px;
-  background-position: 0 0, 30px 0, 15px 26px, 45px 26px, 0 52px, 30px 52px;
+    linear-gradient(90deg, rgba(0, 60, 0, 0.07) 1px, transparent 1px),
+    linear-gradient(60deg, rgba(0, 60, 0, 0.07) 1px, transparent 1px),
+    linear-gradient(120deg, rgba(0, 60, 0, 0.07) 1px, transparent 1px);
+  background-size: 40px 70px;
+  background-attachment: fixed;
 }
 
-/* ---------------------------- */
-/* HEADER                       */
-/* ---------------------------- */
+/* HEADER */
 header {
   background-color: var(--white);
   border-bottom: 1px solid rgba(0,0,0,0.08);
@@ -70,17 +63,14 @@ header {
 }
 
 .logo {
-  display: block;
   max-width: 200px;
   width: 16vw;
   min-width: 80px;
-  transition: transform var(--transition), filter var(--transition);
-  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.12));
+  transition: var(--transition);
 }
 
 .logo:hover {
   transform: scale(1.06);
-  filter: drop-shadow(0 3px 4px rgba(0,0,0,0.18));
 }
 
 /* NAV LINKS */
@@ -105,9 +95,7 @@ header {
   border-bottom-color: var(--accent-color);
 }
 
-/* ---------------------------- */
-/* SEARCH BAR                   */
-/* ---------------------------- */
+/* SEARCH BAR */
 .search-bar {
   display: flex;
   align-items: center;
@@ -119,7 +107,6 @@ header {
   border: 1px solid #cfcfcf;
   border-radius: var(--radius);
   transition: var(--transition);
-  background-color: #fff;
 }
 
 .search-bar input:focus {
@@ -144,31 +131,22 @@ header {
   transform: translateY(-2px);
 }
 
-/* ---------------------------- */
-/* HERO SECTION (UPDATED)       */
-/* ---------------------------- */
+/* ---------------------- */
+/* HERO WITH IMAGE       */
+/* ---------------------- */
 .hero {
-  text-align: center;
-  padding: 6rem 2rem;
   position: relative;
-  overflow: hidden;
-  background: linear-gradient(135deg, var(--white) 0%, #f0fdf0 100%);
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-}
+  padding: 8rem 2rem;
+  text-align: center;
 
-/* Background hero image */
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("../pictures/hero.jpg");
+  background-image:
+    linear-gradient(rgba(255,255,255,0.68), rgba(255,255,255,0.85)),
+    url("../pictures/hero.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
-  filter: brightness(0.55) blur(2px);
-  opacity: 0.55;
-  z-index: -1;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
 .hero h1 {
@@ -176,21 +154,17 @@ header {
   font-size: clamp(2.2rem, 5vw, 3.2rem);
   font-weight: 700;
   color: var(--primary-color);
-  letter-spacing: -0.5px;
   margin-bottom: 0.8rem;
 }
 
 .hero p {
-  font-size: 1.2rem;
   max-width: 650px;
   margin: 0 auto;
-  color: var(--mid-gray);
+  font-size: 1.2rem;
   opacity: 0.9;
 }
 
-/* ---------------------------- */
-/* FEATURED CARDS               */
-/* ---------------------------- */
+/* FEATURED CARDS */
 .featured {
   display: flex;
   justify-content: center;
@@ -207,7 +181,6 @@ header {
   border: 1px solid rgba(0,0,0,0.08);
   box-shadow: var(--shadow-soft);
   transition: var(--transition);
-  cursor: pointer;
   display: flex;
   flex-direction: column;
 }
@@ -219,16 +192,8 @@ header {
 
 .card-image {
   height: 180px;
-  background-size: cover !important;
-  background-position: center !important;
-  background-repeat: no-repeat !important;
-}
-
-.card-image.placeholder {
-  background: linear-gradient(120deg, #d6f5d6, #b8ebb8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-size: cover;
+  background-position: center;
 }
 
 .card-content {
@@ -239,7 +204,6 @@ header {
   font-size: 0.8rem;
   color: #6f6f6f;
   text-transform: uppercase;
-  letter-spacing: 0.7px;
 }
 
 .card-title {
@@ -249,50 +213,26 @@ header {
   color: var(--primary-color);
 }
 
-/* ---------------------------- */
-/* FOOTER                       */
-/* ---------------------------- */
+/* FOOTER */
 footer {
   padding: 2rem 1rem;
   background-color: var(--primary-color);
   color: var(--white);
   text-align: center;
-  font-size: 0.95rem;
   margin-top: 7rem;
-  letter-spacing: 0.4px;
   border-top: 3px solid var(--accent-color);
 }
 
-/* ---------------------------- */
-/* RESPONSIVE                   */
-/* ---------------------------- */
+/* RESPONSIVE */
 @media (max-width: 768px) {
-
-  .hamburger {
-    display: flex;
-    order: 2;
+  .hero {
+    padding: 6rem 1.4rem;
   }
-
   .nav-links {
     gap: 1.2rem;
-    font-size: 0.95rem;
   }
-
-  .hero {
-    padding: 4rem 1.4rem;
-  }
-
   .featured {
     flex-direction: column;
     align-items: center;
   }
-}
-
-/* ---------------------------- */
-/* PAGE-SPECIFIC                */
-/* ---------------------------- */
-.players-page {
-  margin: 0 auto;
-  margin-top: 100px;
-  max-width: 75%;
 }
