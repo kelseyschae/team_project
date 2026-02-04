@@ -7,34 +7,47 @@
   <meta name="description"
     content="GoalNerd Player Stats - Explore detailed player statistics across leagues and seasons." />
   <title>GoalNerd | Players</title>
+  <!-- Animate.css for rollOut animation on nav links -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="css/players.css" />
-  <script src="js/players.js" defer></script>
-  <script src="js/search.js" defer></script>
 </head>
 
 <body>
+  <!-- Skip Link for Accessibility (keyboard users can skip nav) -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-<header class="main-header">
-    <div class="nav-left">
-      <a href="index.html">
-        <img src="pictures/logo.png" alt="GoalNerd logo" class="logo">
-      </a>
-    </div>
+  <header>
+    <div class="main-nav">
 
-    <nav class="main-nav">
-      <a href="players.html">Players</a>
-      <a href="leagues.html">Leagues</a>
-      <a href="games.html">Games</a>
-      <a href="mystats.html">My Stats</a>
-
-      <div class="search-box">
-        <input type="text" placeholder="Search players, clubs...">
-        <button>Search</button>
+   
+      <div class="nav-left">
+        <a href="index.html">
+          <img src="pictures/logo.png" alt="GoalNerd logo" class="logo">
+        </a>
       </div>
-    </nav>
+
+    
+      <div class="nav-center">
+        <ul class="nav-links">
+          <li><a href="players.html">Players</a></li>
+          <li><a href="leagues.html">Leagues</a></li>
+          <li><a href="games.html">Games</a></li>
+          <li><a href="mystats.html">My Stats</a></li>
+        </ul>
+      </div>
+
+
+      <div class="nav-right">
+        <div class="search-bar">
+          <input type="text" placeholder="Search players, clubs...">
+          <button>Search</button>
+        </div>
+      </div>
+
+    </div>
   </header>
+
   <main>
     <section class="players-page">
       <section class="intro">
@@ -54,6 +67,8 @@
     <p>&copy; 2025 GoalNerd. All Rights Reserved.</p>
   </footer>
 
+  <!-- Use ES6 module system - all scripts import from modules/ folder -->
+  <script type="module" src="js/players.module.js"></script>
 </body>
 
 </html>

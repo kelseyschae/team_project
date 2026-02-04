@@ -6,37 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="GoalNerd - Detailed view for teams and players, including stats and info." />
     <title>GoalNerd | Details</title>
+    <!-- Animate.css for rollOut animation on nav links -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/details.css" />
-    <script src="js/details.js" defer></script>
-    <script src="js/search.js" defer></script>
 </head>
 
 <body>
 
-    <header class="main-header">
-        <div class="nav-left">
+      <header>
+    <div class="main-nav">
+
+   
+      <div class="nav-left">
         <a href="index.html">
-            <img src="pictures/logo.png" alt="GoalNerd logo" class="logo">
+          <img src="pictures/logo.png" alt="GoalNerd logo" class="logo">
         </a>
+      </div>
+
+    
+      <div class="nav-center">
+        <ul class="nav-links">
+          <li><a href="players.html">Players</a></li>
+          <li><a href="leagues.html">Leagues</a></li>
+          <li><a href="games.html">Games</a></li>
+          <li><a href="mystats.html">My Stats</a></li>
+        </ul>
+      </div>
+
+
+      <div class="nav-right">
+        <div class="search-bar">
+          <input type="text" placeholder="Search players, clubs...">
+          <button>Search</button>
         </div>
+      </div>
 
-        <nav class="main-nav">
-        <a href="players.html">Players</a>
-        <a href="leagues.html">Leagues</a>
-        <a href="games.html">Games</a>
-        <a href="mystats.html">My Stats</a>
+    </div>
+  </header>
 
-        <div class="search-box">
-            <input type="text" placeholder="Search players, clubs...">
-            <button>Search</button>
-        </div>
-        </nav>
-    </header>
-
-
-    <main>
+    <main id="main-content">
         <section class="hero">
             <h1 id="details-title">Loading details...</h1>
             <p id="details-subtitle">
@@ -71,6 +80,9 @@
     <footer>
         <p>&copy; 2025 GoalNerd. All Rights Reserved.</p>
     </footer>
+
+    <!-- Use ES6 module system - all scripts import from modules/ folder -->
+    <script type="module" src="js/details.module.js"></script>
 </body>
 
 </html>
